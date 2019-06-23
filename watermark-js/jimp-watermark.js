@@ -1,76 +1,104 @@
+const fs = require('fs');
 var Jimp = require('jimp');
-var name = process.argv[2];
+//var start = process.argv[2];
+//var endBefore = process.argv[3];
 //if you are following along, create the following 2 images relative to this script:
-let imgRaw = 'images/inputPics/stachCat1024.jpg'; //a 1024px x 1024px backgroound image
-let imgLogo = 'images/inputPics/Tech_Discounts_Logo.png'; //a 155px x 72px logo
-//--
 
-function stamper() {
-   // watermark by local path
- for (var i = 1; i < 5; i++) {
-//         watermark([`images/inputPics/catBeard${i}.jpeg`, 'images/inputPics/Tech_Discounts_Logo.png'])
-//             .image(watermark.image.lowerRight(0.5))
-//             .then(img =>   fs.writeFile(`images/inputPics/catBeard${ i }.jpeg`, 'aaa', function(err) {console.log("Uh oh!")}));
+async function stamper(i) {
+    //let imgRaw = `images/inputPics/IMG_000${i}.JPG`;
+    let imgRaw;
+    if (i < 10) {
+        imgRaw = `images/inputPics/IMG_000${i}.JPG`;
+    } else if (i < 100) {
+        imgRaw = `images/inputPics/IMG_00${i}.JPG`;
+    } else if (i < 1000) {
+        imgRaw = `images/inputPics/IMG_0${i}.JPG`;
+    } else if (i < 10000) {
+        imgRaw = `images/inputPics/IMG_${i}.JPG`;
+    } //end ifs
 
-    } // end stamper() function
-}
-//call stamper fct
-stamper();
-// -
 
-let imgActive = 'images/inputPics/stachCat1024.jpeg';
-let imgExported = `images/outputPics/stachCat1024${name}.jpeg`;
 
-let textData = {
-  text: "'Stach Cat!", //the text to be rendered on the image
-  maxWidth: 1004, //image width - 10px margin left - 10px margin right
-  maxHeight: 72+20, //logo height + margin
-  placementX: 10, // 10px in on the x axis
-  placementY: 1024-(72+20)-10 //bottom of the image: height - maxHeight - margin 
-};
+    let imgLogo = 'images/inputPics/Tech_Discounts_Logo.png'; //a 155px x 72px logo
 
-//read template & clone raw image 
-Jimp.read(imgRaw)
-  .then(tpl => (tpl.clone().write(imgActive)))
+    let imgActive = imgRaw;
+    let imgExported = `images/outputPics/watermarked_${i}.jpg`;
 
-  //read cloned (active) image
-  .then(() => (Jimp.read(imgActive)))
+    let textData = {
+        text: "A DIVISION OF THE JOBS FOUNDATION", //the text to be rendered on the image
+        maxWidth: 1004, //image width - 10px margin left - 10px margin right
+        maxHeight: 72 + 20, //logo height + margin
+        placementX: 260, // 10px in on the x axis
+        placementY: 3735 //bottom of the image: height - maxHeight - margin 
+    };
 
-  //combine logo into image
-  .then(tpl => (
-    Jimp.read(imgLogo).then(logoTpl => {
-      logoTpl.opacity(0.6);
-      return tpl.composite(logoTpl, 512-75, 512, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2]);
-    })
-  )
+    //read template & clone raw image 
+    Jimp.read(imgRaw)
+        .then(tpl => (tpl.clone().write(imgActive)))
 
-  //load font	
-  .then(tpl => (
-    Jimp.loadFont(Jimp.FONT_SANS_32_WHITE).then(font => ([tpl, font]))
-  ))
-	
-  //add footer text
-  .then(data => {
+        //read cloned (active) image
+        .then(() => (Jimp.read(imgActive)))
 
-    tpl = data[0];
-    font = data[1];
-  
-    return tpl.print(font, textData.placementX, textData.placementY, {
-      text: textData.text,
-      alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
-      alignmentY: Jimp.VERTICAL_ALIGN_MIDDLE
-    }, textData.maxWidth, textData.maxHeight);
-  })
+        //combine logo into image
+        .then(tpl => (
+                Jimp.read(imgLogo).then(logoTpl => {
+                    logoTpl.opacity(0.6);
+                    return tpl.composite(logoTpl, 10, 3475, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2]);
+                })
+            )
 
-  //export image
-  .then(tpl => (tpl.quality(100).write(imgExported)))
+            // //load font  
+            .then(tpl => (
+                Jimp.loadFont(Jimp.FONT_SANS_32_BLACK).then(font => ([tpl, font]))
+            ))
 
-  //log exported filename
-  .then(tpl => { 
-    console.log('exported file: ' + imgExported);
-  })
+            // //add footer text
+            .then(data => {
 
-  //catch errors
-  .catch(err => {
-    console.error(err);
-  }));
+                tpl = data[0];
+                font = data[1];
+
+                return tpl.print(font, textData.placementX, textData.placementY, {
+                    text: textData.text,
+                    alignmentX: Jimp.HORIZONTAL_ALIGN_CENTER,
+                    alignmentY: Jimp.VERTICAL_ALIGN_MIDDLE
+                }, textData.maxWidth, textData.maxHeight);
+            })
+
+            //export image
+            .then(tpl => (tpl.quality(100).write(imgExported)))
+
+            //log exported filename
+            .then(tpl => {
+                console.log('New image ' + i + ' : ' + imgExported);
+            })
+
+            //catch errors
+            .catch(err => {
+                console.error(err);
+            }));
+    return;
+} //end stamper function
+
+
+async function run() {
+
+    const inputFolder = "./images/inputPics";
+    var inputFolderLen;
+
+    fs.readdir(inputFolder, (err, files) => {
+        inputFolderLen = files.length;
+        console.log("Number of Imgs in Folder: ", inputFolderLen);
+    });
+
+    let inputArr = [];
+
+    for (var i = 2; i < 9; i++) {
+        await stamper(i);
+
+    } // end for loop
+
+} //end run() def
+
+run();
+//stamper(2);
