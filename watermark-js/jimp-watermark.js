@@ -1,7 +1,6 @@
 const fs = require('fs');
 var Jimp = require('jimp');
-//var start = process.argv[2];
-//var endBefore = process.argv[3];
+
 //if you are following along, create the following 2 images relative to this script:
 
 async function stamper(i) {
@@ -19,7 +18,7 @@ async function stamper(i) {
 
 
 
-    let imgLogo = 'images/inputPics/Tech_Discounts_Logo.png'; //a 155px x 72px logo
+    let imgLogo = 'images/watermark/Tech_Discounts_Logo.png'; //a 155px x 72px logo
 
     let imgActive = imgRaw;
     let imgExported = `images/outputPics/watermarked_${i}.jpg`;
@@ -28,8 +27,8 @@ async function stamper(i) {
         text: "A DIVISION OF THE JOBS FOUNDATION", //the text to be rendered on the image
         maxWidth: 1004, //image width - 10px margin left - 10px margin right
         maxHeight: 72 + 20, //logo height + margin
-        placementX: 260, // 10px in on the x axis
-        placementY: 3735 //bottom of the image: height - maxHeight - margin 
+        placementX: 320, // 10px in on the x axis
+        placementY: 3740 //bottom of the image: height - maxHeight - margin 
     };
 
     //read template & clone raw image 
@@ -77,11 +76,13 @@ async function stamper(i) {
             .catch(err => {
                 console.error(err);
             }));
-    return;
+    //return;
 } //end stamper function
 
 
 async function run() {
+    let start = process.argv[2];
+    let endBefore = process.argv[3];
 
     const inputFolder = "./images/inputPics";
     var inputFolderLen;
@@ -93,7 +94,7 @@ async function run() {
 
     let inputArr = [];
 
-    for (var i = 2; i < 9; i++) {
+    for (var i = 20; i < 25; i++) {
         await stamper(i);
 
     } // end for loop
