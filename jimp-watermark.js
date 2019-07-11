@@ -1,19 +1,24 @@
+/** To Run type `node --max-old-space-size=2048 jimp-watermark.js <starting index> <ending index>` */
+
 const fs = require('fs');
 var Jimp = require('jimp');
 
-//if you are following along, create the following 2 images relative to this script:
-
 async function stamper(i) {
     //let imgRaw = `images/inputPics/IMG_000${i}.JPG`;
+    //C:/Users/Nathan\ Perfetti/Desktop/SellerCloud Imgs/7-8/originals\ 2/IMG_000${i}.JPG
     let imgRaw;
     if (i < 10) {
-        imgRaw = `images/inputPics/IMG_000${i}.JPG`;
+        //imgRaw = `images/inputPics/IMG_000${i}.JPG`;
+        imgRaw =`C:/Users/Nathan\ Perfetti/Desktop/SellerCloud Imgs/7-8/originals3/IMG_000${i}.JPG`
     } else if (i < 100) {
-        imgRaw = `images/inputPics/IMG_00${i}.JPG`;
+        //imgRaw = `images/inputPics/IMG_00${i}.JPG`;
+        imgRaw =`C:/Users/Nathan\ Perfetti/Desktop/SellerCloud Imgs/7-8/originals3/IMG_00${i}.JPG`
     } else if (i < 1000) {
-        imgRaw = `images/inputPics/IMG_0${i}.JPG`;
+        //imgRaw = `images/inputPics/IMG_0${i}.JPG`;
+        imgRaw =`C:/Users/Nathan\ Perfetti/Desktop/SellerCloud Imgs/7-8/originals3/IMG_0${i}.JPG`
     } else if (i < 10000) {
-        imgRaw = `images/inputPics/IMG_${i}.JPG`;
+        //imgRaw = `images/inputPics/IMG_${i}.JPG`;
+        imgRaw =`C:/Users/Nathan\ Perfetti/Desktop/SellerCloud Imgs/7-8/originals3/IMG_${i}.JPG`
     } //end ifs
 
 
@@ -21,7 +26,9 @@ async function stamper(i) {
     let imgLogo = 'images/watermark/Tech_Discounts_Logo.png'; //a 155px x 72px logo
 
     let imgActive = imgRaw;
-    let imgExported = `images/outputPics/watermarked_${i}.jpg`;
+    //let imgExported = `images/outputPics/watermarked_${i}.jpg`;
+    let imgExported = `C:/Users/Nathan\ Perfetti/Desktop/SellerCloud Imgs/7-8/wmBatch5/watermarked_${i}.jpg`;
+
 
     let textData = {
         text: "A DIVISION OF THE JOBS FOUNDATION", //the text to be rendered on the image
@@ -30,8 +37,7 @@ async function stamper(i) {
         placementX: 320, // 10px in on the x axis
         placementY: 3740 //bottom of the image: height - maxHeight - margin 
     };
-
-    //read template & clone raw image 
+    
     Jimp.read(imgRaw)
         .then(tpl => (tpl.clone().write(imgActive)))
 
@@ -80,9 +86,9 @@ async function stamper(i) {
 } //end stamper function
 
 
-async function run() {
-    let start = process.argv[2];
-    let endBefore = process.argv[3];
+async function run(start, endBefore) {
+    //let start = process.argv[2];
+    //let endBefore = process.argv[3];
 
     const inputFolder = "./images/inputPics";
     var inputFolderLen;
@@ -92,14 +98,14 @@ async function run() {
         console.log("Number of Imgs in Folder: ", inputFolderLen);
     });
 
-    let inputArr = [];
 
-    for (var i = 20; i < 25; i++) {
+    for (var i = start; i < endBefore; i++) {
         await stamper(i);
 
     } // end for loop
 
 } //end run() def
 
-run();
+run(process.argv[2], process.argv[3]);
 //stamper(2);
+
