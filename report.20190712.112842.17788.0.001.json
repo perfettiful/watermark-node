@@ -1,0 +1,309 @@
+
+{
+  "header": {
+    "event": "Allocation failed - JavaScript heap out of memory",
+    "trigger": "FatalError",
+    "filename": "report.20190712.112842.17788.0.001.json",
+    "dumpEventTime": "2019-07-12T11:28:42Z",
+    "dumpEventTimeStamp": "1562948922341",
+    "processId": 17788,
+    "cwd": "C:\\Users\\Nathan Perfetti\\Desktop\\watermark-node",
+    "commandLine": [
+      "C:/Program Files/nodejs/node.exe",
+      "jimp-watermark.js",
+      "300",
+      "353"
+    ],
+    "nodejsVersion": "v12.4.0",
+    "wordSize": 64,
+    "arch": "x64",
+    "platform": "win32",
+    "componentVersions": {
+      "node": "12.4.0",
+      "v8": "7.4.288.27-node.18",
+      "uv": "1.29.1",
+      "zlib": "1.2.11",
+      "brotli": "1.0.7",
+      "ares": "1.15.0",
+      "modules": "72",
+      "nghttp2": "1.38.0",
+      "napi": "4",
+      "llhttp": "1.1.3",
+      "http_parser": "2.8.0",
+      "openssl": "1.1.1b",
+      "cldr": "35.1",
+      "icu": "64.2",
+      "tz": "2019a",
+      "unicode": "12.1"
+    },
+    "release": {
+      "name": "node",
+      "headersUrl": "https://nodejs.org/download/release/v12.4.0/node-v12.4.0-headers.tar.gz",
+      "sourceUrl": "https://nodejs.org/download/release/v12.4.0/node-v12.4.0.tar.gz",
+      "libUrl": "https://nodejs.org/download/release/v12.4.0/win-x64/node.lib"
+    },
+    "osName": "Windows_NT",
+    "osRelease": "10.0.17763",
+    "osVersion": "Windows 10 Pro",
+    "osMachine": "x86_64",
+    "host": "Nathan-Desktop"
+  },
+  "javascriptStack": {
+    "message": "No stack.",
+    "stack": [
+      "Unavailable."
+    ]
+  },
+  "nativeStack": [
+    {
+      "pc": "0x00007ff786d164a9",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+9161"
+    },
+    {
+      "pc": "0x00007ff786d19d94",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+23732"
+    },
+    {
+      "pc": "0x00007ff786d18db8",
+      "symbol": "std::basic_ostream<char,std::char_traits<char> >::operator<<+19672"
+    },
+    {
+      "pc": "0x00007ff786e0256b",
+      "symbol": "uv_loop_fork+48251"
+    },
+    {
+      "pc": "0x00007ff78713a56e",
+      "symbol": "v8::internal::Parser::ReportMessageAt+206"
+    },
+    {
+      "pc": "0x00007ff78710e5ea",
+      "symbol": "v8::internal::wasm::StreamingDecoder::Fail+666"
+    },
+    {
+      "pc": "0x00007ff7871a4a3c",
+      "symbol": "v8::internal::Heap::CreateFillerObjectAt+2972"
+    },
+    {
+      "pc": "0x00007ff7871a1618",
+      "symbol": "v8::internal::GCTracer::AddScopeSample+1560"
+    },
+    {
+      "pc": "0x00007ff7871da18f",
+      "symbol": "v8::internal::Factory::AllocateRawArray+95"
+    },
+    {
+      "pc": "0x00007ff7871e2336",
+      "symbol": "v8::internal::Factory::NewFixedArrayWithFiller+86"
+    },
+    {
+      "pc": "0x00007ff7871e22d0",
+      "symbol": "v8::internal::Factory::NewUninitializedFixedArray+64"
+    },
+    {
+      "pc": "0x00007ff7873cdc5e",
+      "symbol": "v8_inspector::V8StackTraceId::V8StackTraceId+123470"
+    },
+    {
+      "pc": "0x00007ff7874efe02",
+      "symbol": "v8::internal::OptimizingCompileDispatcher::Unblock+14882"
+    },
+    {
+      "pc": "0x00007ff7879a4196",
+      "symbol": "v8::internal::NativesCollection<0>::GetScriptsSource+662454"
+    }
+  ],
+  "javascriptHeap": {
+    "totalMemory": 89153536,
+    "totalCommittedMemory": 89153536,
+    "usedMemory": 85559352,
+    "availableMemory": 2111249928,
+    "memoryLimit": 2197815296,
+    "heapSpaces": {
+      "read_only_space": {
+        "memorySize": 524288,
+        "committedMemory": 524288,
+        "capacity": 523976,
+        "used": 31712,
+        "available": 492264
+      },
+      "new_space": {
+        "memorySize": 1048576,
+        "committedMemory": 1048576,
+        "capacity": 1047952,
+        "used": 0,
+        "available": 1047952
+      },
+      "old_space": {
+        "memorySize": 25288704,
+        "committedMemory": 25288704,
+        "capacity": 24380728,
+        "used": 24380728,
+        "available": 0
+      },
+      "code_space": {
+        "memorySize": 688128,
+        "committedMemory": 688128,
+        "capacity": 253600,
+        "used": 253600,
+        "available": 0
+      },
+      "map_space": {
+        "memorySize": 1052672,
+        "committedMemory": 1052672,
+        "capacity": 408480,
+        "used": 408480,
+        "available": 0
+      },
+      "large_object_space": {
+        "memorySize": 60502016,
+        "committedMemory": 60502016,
+        "capacity": 60481376,
+        "used": 60481376,
+        "available": 0
+      },
+      "code_large_object_space": {
+        "memorySize": 49152,
+        "committedMemory": 49152,
+        "capacity": 3456,
+        "used": 3456,
+        "available": 0
+      },
+      "new_large_object_space": {
+        "memorySize": 0,
+        "committedMemory": 0,
+        "capacity": 1047952,
+        "used": 0,
+        "available": 1047952
+      }
+    }
+  },
+  "resourceUsage": {
+    "userCpuSeconds": 274.14,
+    "kernelCpuSeconds": 20.14,
+    "cpuConsumptionPercent": 103.256,
+    "maxRss": 2819805184,
+    "pageFaults": {
+      "IORequired": 7420168,
+      "IONotRequired": 0
+    },
+    "fsActivity": {
+      "reads": 774,
+      "writes": 32
+    }
+  },
+  "libuv": [
+  ],
+  "environmentVariables": {
+    "ACLOCAL_PATH": "/mingw64/share/aclocal:/usr/share/aclocal",
+    "ALLUSERSPROFILE": "C:\\ProgramData",
+    "APPDATA": "C:\\Users\\Nathan Perfetti\\AppData\\Roaming",
+    "COMMONPROGRAMFILES": "C:\\Program Files\\Common Files",
+    "CommonProgramFiles(x86)": "C:\\Program Files (x86)\\Common Files",
+    "CommonProgramW6432": "C:\\Program Files\\Common Files",
+    "COMPUTERNAME": "NATHAN-DESKTOP",
+    "COMSPEC": "C:\\Windows\\system32\\cmd.exe",
+    "CONFIG_SITE": "/mingw64/etc/config.site",
+    "DISPLAY": "needs-to-be-defined",
+    "DriverData": "C:\\Windows\\System32\\Drivers\\DriverData",
+    "EXEPATH": "C:\\Users\\Nathan Perfetti\\AppData\\Local\\Programs\\Git",
+    "FPS_BROWSER_APP_PROFILE_STRING": "Internet Explorer",
+    "FPS_BROWSER_USER_PROFILE_STRING": "Default",
+    "HOME": "C:\\Users\\Nathan Perfetti",
+    "HOMEDRIVE": "C:",
+    "HOMEPATH": "\\Users\\Nathan Perfetti",
+    "HOSTNAME": "Nathan-Desktop",
+    "INFOPATH": "/usr/local/info:/usr/share/info:/usr/info:/share/info",
+    "LANG": "en_US.UTF-8",
+    "LOCALAPPDATA": "C:\\Users\\Nathan Perfetti\\AppData\\Local",
+    "LOGONSERVER": "\\\\NATHAN-DESKTOP",
+    "MANPATH": "/mingw64/local/man:/mingw64/share/man:/usr/local/man:/usr/share/man:/usr/man:/share/man",
+    "MINGW_CHOST": "x86_64-w64-mingw32",
+    "MINGW_PACKAGE_PREFIX": "mingw-w64-x86_64",
+    "MINGW_PREFIX": "/mingw64",
+    "MSYSTEM": "MINGW64",
+    "MSYSTEM_CARCH": "x86_64",
+    "MSYSTEM_CHOST": "x86_64-w64-mingw32",
+    "MSYSTEM_PREFIX": "/mingw64",
+    "NUMBER_OF_PROCESSORS": "4",
+    "OLDPWD": "/c/Users/Nathan Perfetti/Desktop",
+    "OneDrive": "C:\\Users\\Nathan Perfetti\\OneDrive",
+    "ORIGINAL_PATH": "C:\\Users\\Nathan Perfetti\\AppData\\Local\\Programs\\Git\\mingw64\\bin;C:\\Users\\Nathan Perfetti\\AppData\\Local\\Programs\\Git\\usr\\bin;C:\\Users\\Nathan Perfetti\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0;C:\\Windows\\System32\\OpenSSH;C:\\Program Files\\nodejs;C:\\Users\\Nathan Perfetti\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Nathan Perfetti\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Nathan Perfetti\\AppData\\Roaming\\npm",
+    "ORIGINAL_TEMP": "/tmp",
+    "ORIGINAL_TMP": "/tmp",
+    "OS": "Windows_NT",
+    "PATH": "C:\\Users\\Nathan Perfetti\\bin;C:\\Users\\Nathan Perfetti\\AppData\\Local\\Programs\\Git\\mingw64\\bin;C:\\Users\\Nathan Perfetti\\AppData\\Local\\Programs\\Git\\usr\\local\\bin;C:\\Users\\Nathan Perfetti\\AppData\\Local\\Programs\\Git\\usr\\bin;C:\\Users\\Nathan Perfetti\\AppData\\Local\\Programs\\Git\\usr\\bin;C:\\Users\\Nathan Perfetti\\AppData\\Local\\Programs\\Git\\mingw64\\bin;C:\\Users\\Nathan Perfetti\\AppData\\Local\\Programs\\Git\\usr\\bin;C:\\Users\\Nathan Perfetti\\bin;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0;C:\\Windows\\System32\\OpenSSH;C:\\Program Files\\nodejs;C:\\Users\\Nathan Perfetti\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\Nathan Perfetti\\AppData\\Local\\Programs\\Microsoft VS Code\\bin;C:\\Users\\Nathan Perfetti\\AppData\\Roaming\\npm;C:\\Users\\Nathan Perfetti\\AppData\\Local\\Programs\\Git\\usr\\bin\\vendor_perl;C:\\Users\\Nathan Perfetti\\AppData\\Local\\Programs\\Git\\usr\\bin\\core_perl",
+    "PATHEXT": ".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC",
+    "PKG_CONFIG_PATH": "/mingw64/lib/pkgconfig:/mingw64/share/pkgconfig",
+    "PLINK_PROTOCOL": "ssh",
+    "PROCESSOR_ARCHITECTURE": "AMD64",
+    "PROCESSOR_IDENTIFIER": "Intel64 Family 6 Model 60 Stepping 3, GenuineIntel",
+    "PROCESSOR_LEVEL": "6",
+    "PROCESSOR_REVISION": "3c03",
+    "ProgramData": "C:\\ProgramData",
+    "PROGRAMFILES": "C:\\Program Files",
+    "ProgramFiles(x86)": "C:\\Program Files (x86)",
+    "ProgramW6432": "C:\\Program Files",
+    "PS1": "\\[\\033]0;$TITLEPREFIX:$PWD\\007\\]\\n\\[\\033[32m\\]\\u@\\h \\[\\033[35m\\]$MSYSTEM \\[\\033[33m\\]\\w\\[\\033[36m\\]`__git_ps1`\\[\\033[0m\\]\\n$ ",
+    "PSModulePath": "C:\\Program Files\\WindowsPowerShell\\Modules;C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules",
+    "PUBLIC": "C:\\Users\\Public",
+    "PWD": "/c/Users/Nathan Perfetti/Desktop/watermark-node",
+    "SESSIONNAME": "Console",
+    "SHELL": "C:\\Users\\Nathan Perfetti\\AppData\\Local\\Programs\\Git\\usr\\bin\\bash.exe",
+    "SHLVL": "1",
+    "SSH_ASKPASS": "/mingw64/libexec/git-core/git-gui--askpass",
+    "SYSTEMDRIVE": "C:",
+    "SYSTEMROOT": "C:\\Windows",
+    "TEMP": "C:\\Users\\NATHAN~1\\AppData\\Local\\Temp",
+    "TMP": "C:\\Users\\NATHAN~1\\AppData\\Local\\Temp",
+    "TMPDIR": "C:\\Users\\NATHAN~1\\AppData\\Local\\Temp",
+    "USERDOMAIN": "NATHAN-DESKTOP",
+    "USERDOMAIN_ROAMINGPROFILE": "NATHAN-DESKTOP",
+    "USERNAME": "Nathan Perfetti",
+    "USERPROFILE": "C:\\Users\\Nathan Perfetti",
+    "WINDIR": "C:\\Windows",
+    "_": "/usr/bin/winpty"
+  },
+  "sharedObjects": [
+    "C:\\Program Files\\nodejs\\node.exe",
+    "C:\\Windows\\SYSTEM32\\ntdll.dll",
+    "C:\\Windows\\System32\\KERNEL32.DLL",
+    "C:\\Windows\\System32\\KERNELBASE.dll",
+    "C:\\Program Files\\Bitdefender\\Endpoint Security\\atcuf\\264072219319734345\\atcuf64.dll",
+    "C:\\Windows\\System32\\WS2_32.dll",
+    "C:\\Windows\\System32\\RPCRT4.dll",
+    "C:\\Windows\\System32\\ADVAPI32.dll",
+    "C:\\Windows\\System32\\msvcrt.dll",
+    "C:\\Windows\\System32\\sechost.dll",
+    "C:\\Windows\\System32\\USER32.dll",
+    "C:\\Windows\\System32\\win32u.dll",
+    "C:\\Windows\\System32\\GDI32.dll",
+    "C:\\Windows\\System32\\gdi32full.dll",
+    "C:\\Windows\\System32\\msvcp_win.dll",
+    "C:\\Windows\\System32\\ucrtbase.dll",
+    "C:\\Windows\\System32\\PSAPI.DLL",
+    "C:\\Windows\\System32\\CRYPT32.dll",
+    "C:\\Windows\\System32\\MSASN1.dll",
+    "C:\\Windows\\System32\\bcrypt.dll",
+    "C:\\Windows\\SYSTEM32\\dbghelp.dll",
+    "C:\\Windows\\SYSTEM32\\IPHLPAPI.DLL",
+    "C:\\Windows\\SYSTEM32\\USERENV.dll",
+    "C:\\Windows\\System32\\profapi.dll",
+    "C:\\Windows\\SYSTEM32\\WINMM.dll",
+    "C:\\Windows\\SYSTEM32\\WINMMBASE.dll",
+    "C:\\Windows\\System32\\cfgmgr32.dll",
+    "C:\\Windows\\System32\\IMM32.DLL",
+    "C:\\Windows\\System32\\powrprof.dll",
+    "C:\\Windows\\system32\\uxtheme.dll",
+    "C:\\Windows\\System32\\combase.dll",
+    "C:\\Windows\\System32\\bcryptPrimitives.dll",
+    "C:\\Windows\\system32\\mswsock.dll",
+    "C:\\Windows\\System32\\kernel.appcore.dll",
+    "C:\\Windows\\system32\\napinsp.dll",
+    "C:\\Windows\\system32\\pnrpnsp.dll",
+    "C:\\Windows\\SYSTEM32\\DNSAPI.dll",
+    "C:\\Windows\\System32\\NSI.dll",
+    "C:\\Windows\\System32\\winrnr.dll",
+    "C:\\Windows\\system32\\NLAapi.dll",
+    "C:\\Windows\\system32\\wshbth.dll"
+  ]
+}

@@ -9,16 +9,16 @@ async function stamper(i) {
     let imgRaw;
     if (i < 10) {
         //imgRaw = `images/inputPics/IMG_000${i}.JPG`;
-        imgRaw =`C:/Users/Nathan\ Perfetti/Desktop/SellerCloud Imgs/7-8/originals3/IMG_000${i}.JPG`
+        imgRaw =`C:/Users/Nathan\ Perfetti/Desktop/SellerCloud Imgs/7-29/originals1/IMG_000${i}.JPG`
     } else if (i < 100) {
         //imgRaw = `images/inputPics/IMG_00${i}.JPG`;
-        imgRaw =`C:/Users/Nathan\ Perfetti/Desktop/SellerCloud Imgs/7-8/originals3/IMG_00${i}.JPG`
+        imgRaw =`C:/Users/Nathan\ Perfetti/Desktop/SellerCloud Imgs/7-29/originals1/IMG_00${i}.JPG`
     } else if (i < 1000) {
         //imgRaw = `images/inputPics/IMG_0${i}.JPG`;
-        imgRaw =`C:/Users/Nathan\ Perfetti/Desktop/SellerCloud Imgs/7-8/originals3/IMG_0${i}.JPG`
+        imgRaw =`C:/Users/Nathan\ Perfetti/Desktop/SellerCloud Imgs/7-29/originals1/IMG_0${i}.JPG`
     } else if (i < 10000) {
         //imgRaw = `images/inputPics/IMG_${i}.JPG`;
-        imgRaw =`C:/Users/Nathan\ Perfetti/Desktop/SellerCloud Imgs/7-8/originals3/IMG_${i}.JPG`
+        imgRaw =`C:/Users/Nathan\ Perfetti/Desktop/SellerCloud Imgs/7-22/originals1/IMG_${i}.JPG`
     } //end ifs
 
 
@@ -27,7 +27,7 @@ async function stamper(i) {
 
     let imgActive = imgRaw;
     //let imgExported = `images/outputPics/watermarked_${i}.jpg`;
-    let imgExported = `C:/Users/Nathan\ Perfetti/Desktop/SellerCloud Imgs/7-8/wmBatch5/watermarked_${i}.jpg`;
+    let imgExported = `C:/Users/Nathan\ Perfetti/Desktop/SellerCloud Imgs/7-29/watermarked1/watermarked_${i}.jpg`;
 
 
     let textData = {
