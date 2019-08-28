@@ -9,16 +9,16 @@ async function stamper(i) {
     let imgRaw;
     if (i < 10) {
         //imgRaw = `images/inputPics/IMG_000${i}.JPG`;
-        imgRaw =`C:/Users/Nathan\ Perfetti/Desktop/SellerCloud Imgs/8-5/originals1/IMG_000${i}.JPG`
+        imgRaw =`C:/Users/Nathan\ Perfetti/Desktop/SellerCloud\ Imgs/8-26/originals/IMG_000${i}.JPG`
     } else if (i < 100) {
         //imgRaw = `images/inputPics/IMG_00${i}.JPG`;
-        imgRaw =`C:/Users/Nathan\ Perfetti/Desktop/SellerCloud Imgs/8-5/originals1/IMG_00${i}.JPG`
+        imgRaw =`C:/Users/Nathan\ Perfetti/Desktop/SellerCloud\ Imgs/8-26/originals/IMG_00${i}.JPG`
     } else if (i < 1000) {
         //imgRaw = `images/inputPics/IMG_0${i}.JPG`;
-        imgRaw =`C:/Users/Nathan\ Perfetti/Desktop/SellerCloud Imgs/8-5/originals1/IMG_0${i}.JPG`
+        imgRaw =`C:/Users/Nathan\ Perfetti/Desktop/SellerCloud\ Imgs/8-26/originals/IMG_0${i}.JPG`
     } else if (i < 10000) {
         //imgRaw = `images/inputPics/IMG_${i}.JPG`;
-        imgRaw =`C:/Users/Nathan\ Perfetti/Desktop/SellerCloud Imgs/8-5/originals1/IMG_${i}.JPG`
+        imgRaw =`C:/Users/Nathan\ Perfetti/Desktop/SellerCloud\ Imgs/8-26/originals/IMG_${i}.JPG`
     } //end ifs
 
 
@@ -27,7 +27,7 @@ async function stamper(i) {
 
     let imgActive = imgRaw;
     //let imgExported = `images/outputPics/watermarked_${i}.jpg`;
-    let imgExported = `C:/Users/Nathan\ Perfetti/Desktop/SellerCloud Imgs/8-5/watermarked1/watermarked_${i}.jpg`;
+    let imgExported = `C:/Users/Nathan\ Perfetti/Desktop/SellerCloud Imgs/8-26/watermarked/watermarked_${i}.jpg`;
 
 
     let textData = {
@@ -85,6 +85,52 @@ async function stamper(i) {
     //return;
 } //end stamper function
 
+async function resizer(i) {
+
+    let dateFolder = '8-26';
+    //let imgRaw = `images/inputPics/IMG_000${i}.JPG`;
+    //C:/Users/Nathan\ Perfetti/Desktop/SellerCloud Imgs/7-8/originals\ 2/IMG_000${i}.JPG
+    let imgRaw;
+    if (i < 10) {
+        //imgRaw = `images/inputPics/IMG_000${i}.JPG`;
+        imgRaw =`C:/Users/Nathan\ Perfetti/Desktop/SellerCloud\ Imgs/${dateFolder}/originals/IMG_000${i}.JPG`
+    } else if (i < 100) {
+        //imgRaw = `images/inputPics/IMG_00${i}.JPG`;
+        imgRaw =`C:/Users/Nathan\ Perfetti/Desktop/SellerCloud\ Imgs/${dateFolder}/originals/IMG_00${i}.JPG`
+    } else if (i < 1000) {
+        //imgRaw = `images/inputPics/IMG_0${i}.JPG`;
+        imgRaw =`C:/Users/Nathan\ Perfetti/Desktop/SellerCloud\ Imgs/${dateFolder}/originals/IMG_0${i}.JPG`
+    } else if (i < 10000) {
+        //imgRaw = `images/inputPics/IMG_${i}.JPG`;
+        imgRaw =`C:/Users/Nathan\ Perfetti/Desktop/SellerCloud\ Imgs/${dateFolder}/originals/IMG_${i}.JPG`
+    } //end ifs
+
+    let imgLogo = 'images/watermark/Tech_Discounts_Logo.png'; //a 155px x 72px logo
+
+    let imgActive = imgRaw;
+
+    let imgResized = `C:/Users/Nathan\ Perfetti/Desktop/SellerCloud\ Imgs/${dateFolder}/originals/IMG_${i}.JPG`
+    //let imgExported = `images/outputPics/watermarked_${i}.jpg`;
+    let imgExported = `C:/Users/Nathan\ Perfetti/Desktop/SellerCloud Imgs/${dateFolder}/watermarked/resized90_${i}.jpg`;
+
+    let textData = {
+        text: "A DIVISION OF THE JOBS FOUNDATION", //the text to be rendered on the image
+        maxWidth: 1004, //image width - 10px margin left - 10px margin right
+        maxHeight: 72 + 20, //logo height + margin
+        placementX: 320, // 10px in on the x axis
+        placementY: 3740 //bottom of the image: height - maxHeight - margin 
+    };
+
+    Jimp.read(imgRaw, function (err, image) {
+        if (err) throw err;
+        image.resize(1024, 768)
+             .quality(85)                 
+             .write(imgExported);
+    
+        // save to imgExported file path
+    });//end Jimp read
+}//end resizer
+
 
 async function run(start, endBefore) {
     //let start = process.argv[2];
@@ -101,11 +147,12 @@ async function run(start, endBefore) {
 
     for (var i = start; i < endBefore; i++) {
         await stamper(i);
+        //await resizer(i);
 
     } // end for loop
 
 } //end run() def
 
 run(process.argv[2], process.argv[3]);
-//stamper(2);
-
+//stamper(99);
+//resizer(3)
