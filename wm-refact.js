@@ -45,16 +45,14 @@ async function resizer(i, dateFolder) {
         //----------start paste from watermarker
   
         //read cloned (active) image
-        .then(() => {
-            Jimp.read(imgActive);
-            console.log(" --- Reading Active Img: "+ imgActive)
-        })
+        .then(() => ( Jimp.read(imgActive)))
 
         //combine logo into image
         .then(tpl => (
                 Jimp.read(imgLogo)
                 .then(logoTpl => {
                     logoTpl.opacity(0.7);
+                    console.log(" === Watermarked Img:" + imgActive);
                     return tpl.resize(1024, 768).composite(logoTpl, 10, 695, [Jimp.BLEND_DESTINATION_OVER, 0.2, 0.2]);
                 })
             )
@@ -96,7 +94,6 @@ async function resizer(i, dateFolder) {
 
 
 }//end resizer fct declaration
-
 
 async function run( dateFolder, start, endBefore) {
     //let start = process.argv[2];
