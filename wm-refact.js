@@ -1,4 +1,3 @@
-/** To Run type `node --max-old-space-size=2048 jimp-watermark.js <starting index> <ending index>` */
 const fs = require('fs');
 var Jimp = require('jimp');
 
@@ -85,6 +84,7 @@ async function resizer(i, dateFolder) {
 
             //catch errors
             .catch(err => {
+                console.log("----- Thar be errs in ye code ---")
                 console.error(err);
             }));
 
@@ -102,10 +102,10 @@ async function run( dateFolder, start, endBefore) {
     const inputFolder = "C:/Users/Nathan\ Perfetti/Desktop/SellerCloud\ Imgs/"+ dateFolder + "/originals";
     var inputFolderLen;
 
-    fs.readdir(inputFolder, (err, files) => {
-        inputFolderLen = files.length;
-        console.log(" +++ Number of Imgs in Folder: ", inputFolderLen);
-    });
+     fs.readdir(inputFolder, (err, files) => {
+         inputFolderLen = files.length;
+         console.log(" +++ Number of Imgs in Folder: ", inputFolderLen);
+     });
 
 
     for (var i = start; i < endBefore; i++) {
@@ -118,4 +118,7 @@ async function run( dateFolder, start, endBefore) {
 
 run(process.argv[2], process.argv[3], process.argv[4]);
 //stamper(99);
-//resizer(9, '9-30')
+//resizer(99, '10-7')
+
+
+/** To Run type `node --max-old-space-size=2048 wm-refact.js <folder title> <starting index> <ending index>` */
